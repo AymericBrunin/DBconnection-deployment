@@ -1,0 +1,50 @@
+#server:
+#   port: 8010
+#  port: 8010
+#  servlet-path: /
+#  ssl:
+#    key-store: keystore
+#    key-store-password: stefan
+
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: 12345678!!
+    key-password: 12345678!!
+
+
+cxf:
+  path: /
+  servlet.init: 
+    service-list-path: /info
+  jaxrs:
+    component-scan: true
+    classes-scan-packages: org.apache.cxf.jaxrs.swagger
+ 
+
+endpoints:
+  jmx:
+    enabled: true
+    unique-names: true
+    
+spring:
+  datasource:
+    initialize: true
+    url: jdbc:oracle:thin:@127.0.0.1:1563:grerp
+    username: tfweb
+    password: tfweb
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    dbcp2.initial-size: 7
+    dbcp2.max-total: 20
+    dbcp2.pool-prepared-statements: true
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG #INFO 
+      hibernate: ERROR
+  
