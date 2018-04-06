@@ -15,7 +15,7 @@ public class Order {
 	@Id
 	@Column(name="CH_ID")
 	private int order;
-	
+
 	@Column(name="ART_NR")
 	private String type;
 
