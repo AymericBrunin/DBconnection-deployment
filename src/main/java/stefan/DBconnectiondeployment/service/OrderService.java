@@ -22,6 +22,26 @@ public interface OrderService {
 	@Path("/orders/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getOneOrder(@PathParam("id") int id) throws JsonProcessingException;
+	
+	@GET
+	@Path("/orders/{id}/Lot")
+	@Produces(MediaType.APPLICATION_JSON)
+	public int getOneOrderLot(@PathParam("id") int id);
+	
+	@GET
+	@Path("/orders/{id}/Type")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getOneOrderType(@PathParam("id") int id);
+	
+	@GET
+	@Path("/orders/{id}/Desc")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getOneOrderDesc(@PathParam("id") int id);
+	
+	@GET
+	@Path("/orders/{id}/Status")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getOneOrderStatus(@PathParam("id") int id);
 
 	@PUT
 	@Path("/orders/{id}/{status}")

@@ -79,6 +79,51 @@ public class OrderServiceImplementation implements OrderService {
 		orderRepository.delete(orders.get(0));
 		
 	}
+
+
+	@Override
+	public int getOneOrderLot(int id){
+		//ObjectMapper mapper=new ObjectMapper();	
+		List<Order> orders=new ArrayList<>();
+		orderRepository.findByOrder(id).forEach(order-> {
+			order.setStatus("notStarted");
+			orders.add(order);
+		});
+		return orders.get(0).getLot();
+	}
+
+
+	@Override
+	public String getOneOrderType(int id){
+		List<Order> orders=new ArrayList<>();
+		orderRepository.findByOrder(id).forEach(order-> {
+			order.setStatus("notStarted");
+			orders.add(order);
+		});
+		return orders.get(0).getType();
+	}
+
+
+	@Override
+	public String getOneOrderDesc(int id){
+		List<Order> orders=new ArrayList<>();
+		orderRepository.findByOrder(id).forEach(order-> {
+			order.setStatus("notStarted");
+			orders.add(order);
+		});
+		return orders.get(0).getDescription();
+	}
+
+
+	@Override
+	public String getOneOrderStatus(int id){
+		List<Order> orders=new ArrayList<>();
+		orderRepository.findByOrder(id).forEach(order-> {
+			order.setStatus("notStarted");
+			orders.add(order);
+		});
+		return orders.get(0).getStatus();
+	}
 	
 
 }
