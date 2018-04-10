@@ -82,47 +82,54 @@ public class OrderServiceImplementation implements OrderService {
 
 
 	@Override
-	public int getOneOrderLot(int id){
-		//ObjectMapper mapper=new ObjectMapper();	
+	public Response getOneOrderLot(int id) throws JsonProcessingException{
+		ObjectMapper mapper=new ObjectMapper();
+
 		List<Order> orders=new ArrayList<>();
 		orderRepository.findByOrder(id).forEach(order-> {
-			order.setStatus("notStarted");
+			//order.setStatus("notStarted");
 			orders.add(order);
 		});
-		return orders.get(0).getLot();
+		return Response.ok(mapper.writeValueAsString(orders.get(0).getLot())).header("Access-Control-Allow-Origin", "*").build();
 	}
 
 
 	@Override
-	public String getOneOrderType(int id){
+	public Response getOneOrderType(int id) throws JsonProcessingException{
+		ObjectMapper mapper=new ObjectMapper();
+
 		List<Order> orders=new ArrayList<>();
 		orderRepository.findByOrder(id).forEach(order-> {
-			order.setStatus("notStarted");
+			//order.setStatus("notStarted");
 			orders.add(order);
 		});
-		return orders.get(0).getType();
+		return Response.ok(mapper.writeValueAsString(orders.get(0).getType())).header("Access-Control-Allow-Origin", "*").build();
 	}
 
 
 	@Override
-	public String getOneOrderDesc(int id){
+	public Response getOneOrderDesc(int id) throws JsonProcessingException{
+		ObjectMapper mapper=new ObjectMapper();
+
 		List<Order> orders=new ArrayList<>();
 		orderRepository.findByOrder(id).forEach(order-> {
-			order.setStatus("notStarted");
+			//order.setStatus("notStarted");
 			orders.add(order);
 		});
-		return orders.get(0).getDescription();
+		return Response.ok(mapper.writeValueAsString(orders.get(0).getDescription())).header("Access-Control-Allow-Origin", "*").build();
 	}
 
 
 	@Override
-	public String getOneOrderStatus(int id){
+	public Response getOneOrderStatus(int id) throws JsonProcessingException{
+		ObjectMapper mapper=new ObjectMapper();
+
 		List<Order> orders=new ArrayList<>();
 		orderRepository.findByOrder(id).forEach(order-> {
-			order.setStatus("notStarted");
+			//order.setStatus("notStarted");
 			orders.add(order);
 		});
-		return orders.get(0).getStatus();
+		return Response.ok(mapper.writeValueAsString(orders.get(0).getStatus())).header("Access-Control-Allow-Origin", "*").build();
 	}
 	
 
