@@ -13,6 +13,9 @@ import javax.ws.rs.core.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public interface OrderService {
+	//la commande
+	//le chemin surlequel la commande doit s'executer
+	// annotation  used to specify the MIME media types
 	@GET
     @Path("/orders")
     @Produces(MediaType.APPLICATION_JSON)

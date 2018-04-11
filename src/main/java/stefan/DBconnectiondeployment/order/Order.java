@@ -5,13 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// indicate that this class is a JPA entity.
 @Entity
+//annotation is used to provide details of the table that this entity will be mapped to
 @Table(name="VW_ABARBEITUNGSLISTE")
 public class Order {
-
+	//annotation used to define properties of the column that will be mapped to the annotated field.
 	@Column(name="AS_AA080_MENGE")
 	private int lot;
 	
+	//annotation used to define the primary key
 	@Id
 	@Column(name="CH_ID")
 	private int order;
